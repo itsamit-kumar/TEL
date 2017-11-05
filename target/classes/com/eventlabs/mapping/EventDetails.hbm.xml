@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class  name="com.eventlabs.domain.EventDetails" table="event_details">
+  <id name="eventId" type="java.lang.Integer">
+   <column name="event_id"/>
+   <generator class="identity"/>
+  </id>
+   <many-to-one class="com.eventlabs.domain.Login" fetch="select" name="login">
+   <column name="login_id"/>
+  </many-to-one>
+   <many-to-one class="com.eventlabs.domain.City" fetch="select" name="city">
+   <column name="city_id"/>
+  </many-to-one>
+  <many-to-one class="com.eventlabs.domain.Category" fetch="select" name="category">
+   <column name="event_category_id"/>
+  </many-to-one>
+ <!--  <many-to-one class="com.eventlabs.domain.EventImage" fetch="select" name="eventImage">
+   <column name="event_image_id"/>
+  </many-to-one> -->
+  
+  <set name="eventImages" table="event_images" inverse="true"
+			lazy="true" fetch="select" cascade="all">
+			<key>
+				<column name="event_image_id" />
+			</key>
+			<one-to-many class="com.eventlabs.domain.EventImage" />
+		</set>
+  <property generated="never" lazy="false" name="eventName" type="string">
+   <column name="event_name"/>
+  </property>
+  <property generated="never" lazy="false" name="eventStartDate" type="string">
+   <column name="event_start_on"/>
+  </property>
+  <property generated="never" lazy="false" name="eventEndDate" type="string">
+   <column  name="event_end_on"/>
+  </property>
+  <property generated="never" lazy="false" name="eventLat" type="string">
+   <column  name="event_lat"/>
+   </property>
+   <property generated="never" lazy="false" name="eventLong" type="string">
+   <column  name="event_long"/>
+  </property>
+  <property name="createdBy" type="string">
+			<column name="created_by" />
+		</property>
+		<property name="createdOn" type="timestamp">
+			<column name="created_on" length="19" />
+		</property>
+		<property name="modifiedBy" type="string">
+			<column name="modified_by" />
+		</property>
+		<property name="modifiedOn" type="timestamp">
+			<column name="modified_on" length="19" />
+		</property>
+ </class>
+</hibernate-mapping>

@@ -1,0 +1,109 @@
+<html>
+<head>
+<link href="css/ui.bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css">
+<link href="css/ng-table.css" rel="stylesheet" type="text/css">
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/jquery.popupoverlay.js"></script>
+<script src="js/lib/jquery.nicescroll.min.js"></script>
+<script src="js/lib/jquery.datetimepicker.full.min.js"></script>
+<script src="js/lib/timezones.full.min.js"></script>
+<script type="text/javascript" src="js/lib/require.js" data-main="js/main.js"></script>
+<style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak {
+        display: none !important;
+    }
+    .thumb {
+    width: 24px;
+    height: 24px;
+    float: none;
+    position: relative;
+    top: 7px;
+}
+/*pageLoader*/
+.pageloader{position:relative; width:100%;}
+.pageloader .overlay{background:#fff; opacity:0.4; position:fixed; left:0; right:0; top:0; bottom:0; width:100%; height:100%; transition:all 0.3s ease 0s; z-index:10000030; }
+.pageloader .loader{text-align:center; vertical-align:middle; min-height: none ; background: #fff url(/event/images/loaderBig.gif) center center no-repeat ; height: 100%; width: 101px; height:101px; position: fixed; top: 50%; left: 50%; margin:-75px 0 0 -75px; z-index: 10000035; border-radius:50%;}
+.loader {text-align:center; vertical-align:middle; min-height: 100px; background: url(/event/images/loader.gif) center center no-repeat ; width: 100%; z-index: 2000;}
+
+/*Popup Window*/
+.popup {padding:25px;background: #fff;	color: #525252;	width:700px; font: normal 14px Arial, Helvetica, sans-serif; line-height:20px;}
+.popup.small{width:470px}
+.popup_visible .popup { -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1);}
+
+#scheduledatetime {
+      background-color: white;
+      cursor: pointer;
+}
+</style>
+</head>
+<body ng-cloak data-ng-controller="MainController">
+<div id="pageloader" class="pageloader">
+	<div class="overlay"></div>
+	<div class="loader"></div>
+</div>
+<div id="alertPop" class="popup small" style="display:none;">
+  <div class="filterContent filterMenu clearfix">
+        <div class="clearfix">
+        <div class="notification notice">Error</div>
+      	 <div class="btnCnt clearfix">
+            <input type="button"  class="btn cta alertPop_close"  value="OK">
+         </div>
+      </div>
+  </div>
+</div>
+  <a href="#/home">Home</a><br><br>
+<div id="searchPannel">
+	<!-- <select ng-model="industry"          
+     ng-options="industry as industry.name for industry in industryList"></select>
+     
+     <select ng-model="country"          
+     ng-options="country as country.name for country in countryList track by country.id"></select>
+     
+     <select ng-model="city"          
+     ng-options="city as city.name for city in getBranches(country.id)"></select> -->
+     
+   <!-- <input type="text" ng-model="industry" placeholder="Select industry" uib-typeahead="industry as industry.name for industry in industryList | filter:{name:$viewValue}" typeahead-template-url="industryDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
+   <input type="text" ng-model="country" placeholder="Select country" uib-typeahead="country as country.name for country in countryList | filter:{name:$viewValue}" typeahead-template-url="countryDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
+   <input type="text" ng-model="city" placeholder="Select city" uib-typeahead="city as city.name for city in getcityes(country.id) | filter:{name:$viewValue}" typeahead-template-url="cityDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
+   -->
+   
+   <input type="text" ng-model="industry" placeholder="Select industry" uib-typeahead="industry as industry.industryTypeName for industry in industryList | filter:{industryTypeName:$viewValue}" typeahead-template-url="industryDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
+   <input type="text" ng-model="country" placeholder="Select country" uib-typeahead="country as country.countryName for country in countryList | filter:{countryName:$viewValue}" typeahead-template-url="countryDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
+   <input type="text" ng-model="city" placeholder="Select city" uib-typeahead="city as city.cityName for city in getcityes(country.countryId) | filter:{cityName:$viewValue}" typeahead-template-url="cityDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
+  
+	<button type="button" id="search" ng-click="searchEvent()">Search</button>
+</div>
+<br>
+<div ng-show="globals.currentUser.username">
+Welcome {{globals.currentUser.username}}
+<button type="button" id="logout" ng-click="signOut()">LogOut</button>
+</div>
+<br>
+ <div data-ng-view=""></div>
+
+<script type="text/ng-template" id="countryDropdown">
+  <a>
+      <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+  </a>
+</script>
+
+<script type="text/ng-template" id="cityDropdown">
+  <a>
+      <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+  </a>
+</script>
+
+<script type="text/ng-template" id="industryDropdown">
+  <a>
+      <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+  </a>
+</script>
+
+<script type="text/ng-template" id="eventListDropdown">
+  <a>
+      <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+  </a>
+</script>
+</body>
+</html>

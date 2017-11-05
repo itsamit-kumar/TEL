@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class  name="com.eventlabs.domain.ActivitiesLogs" table="user_activities_logs">
+  <id name="logId" type="java.lang.Integer">
+   <column name="activity_id"/>
+   <generator class="identity"/>
+  </id>
+  <property generated="never" lazy="false" name="activityType" type="string">
+   <column name="activity_type" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="serviceName" type="string">
+   <column name="service_name"/>
+  </property>
+  <property generated="never" lazy="false" name="deviceName" type="string">
+   <column length="14" name="browser_info"/>
+  </property>
+	<property name="activityOn" type="timestamp">
+			<column name="activity_on" length="19" />
+	</property>
+ </class>
+</hibernate-mapping>

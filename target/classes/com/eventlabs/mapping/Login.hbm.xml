@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.eventlabs.domain.Login" table="login">
+		<id name="loginId" type="java.lang.Long">
+			<column name="login_id" />
+			<generator class="identity" />
+		</id>
+		<property name="loginSource" type="string">
+			<column name="login_id_source" length="50" />
+		</property>
+		<property name="emailId" type="string">
+			<column name="email_id" />
+		</property>
+		<property name="password" type="string">
+			<column name="password" />
+		</property>
+		<property name="salt" type="string">
+			<column name="salt" />
+		</property>
+		<property name="createdBy" type="string">
+			<column name="created_by" />
+		</property>
+		<property name="createdOn" type="timestamp">
+			<column name="created_on" length="19" />
+		</property>
+		<property name="modifiedBy" type="string">
+			<column name="modified_by" />
+		</property>
+		<property name="modifiedOn" type="timestamp">
+			<column name="modified_on" length="19" />
+		</property>
+		<property name="isUserActivate" type="integer">
+			<column name="is_active" length="1" />
+		</property>
+
+		<set name="userDetailses" table="user_details" inverse="true"
+			lazy="true" fetch="select" cascade="all">
+			<key>
+				<column name="login_id" />
+			</key>
+			<one-to-many class="com.eventlabs.domain.UserDetails" />
+		</set>
+	</class>
+	<query name="getLoginDetailsbyEmailId">
+		<query-param name="emailId" type="String" />
+		<![CDATA[from Login login where login.emailId = :emailId]]>
+	</query>
+</hibernate-mapping>

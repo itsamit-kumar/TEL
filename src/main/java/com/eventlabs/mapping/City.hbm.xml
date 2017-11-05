@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.eventlabs.domain.City" table="city">
+		<id name="cityId" type="java.lang.Long">
+			<column name="city_id" />
+			<generator class="identity" />
+		</id>
+		<!-- <many-to-one class="com.eventlabs.domain.Country" fetch="select" name="country">
+	       <column name="country_id" />
+        </many-to-one> -->
+        <property name="countryId" type="java.lang.Long">
+			<column name="country_id" />
+		</property>
+		<property name="cityName" type="string">
+			<column name="city_name" length="50" />
+		</property>
+		<property name="createdBy" type="string">
+			<column name="created_by" />
+		</property>
+		<property name="createdOn" type="timestamp">
+			<column name="created_on" length="19" />
+		</property>
+		<property name="modifiedBy" type="string">
+			<column name="modified_by" />
+		</property>
+		<property name="modifiedOn" type="timestamp">
+			<column name="modified_on" length="19" />
+		</property>
+	</class>
+</hibernate-mapping>

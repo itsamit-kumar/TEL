@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.eventlabs.domain.IndustryType" table="industry_type">
+		<id name="industryTypeId" type="java.lang.Long">
+			<column name="industry_type_id" />
+			<generator class="identity" />
+		</id>
+		<property name="industryTypeName" type="string">
+			<column name="industry_name" length="50" />
+		</property>
+		<property name="industryTypeDesc" type="string">
+			<column name="industry_description" length="50" />
+		</property>
+		<property name="createdBy" type="string">
+			<column name="created_by" />
+		</property>
+		<property name="createdOn" type="timestamp">
+			<column name="created_on" length="19" />
+		</property>
+		<property name="modifiedBy" type="string">
+			<column name="modified_by" />
+		</property>
+		<property name="modifiedOn" type="timestamp">
+			<column name="modified_on" length="19" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,101 @@
+<div id="home">
+<form name="eventForm">
+ <fieldset>
+	 Event Name : <input type="text" id="eventName" placeholder="eventName" ng-model="eventName"><br><br>
+	
+	<!-- Industry Type: <input type="text" ng-model="industry" placeholder="Select industry" uib-typeahead="industry as industry.name for industry in industryList | filter:{name:$viewValue}" typeahead-template-url="industryDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0"><br><br>
+    country: <input type="text" ng-model="country" placeholder="Select country" uib-typeahead="country as country.name for country in countryList | filter:{name:$viewValue}" typeahead-template-url="countryDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0"><br><br>
+    city: <input type="text" ng-model="city" placeholder="Select city" uib-typeahead="city as city.name for city in getcityes(country.id) | filter:{name:$viewValue}" typeahead-template-url="cityDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0"><br><br>
+    Event Type: <input type="text" ng-model="eventType" placeholder="Select eventType" uib-typeahead="eventType as eventType.name for eventType in EventTypeList | filter:{name:$viewValue}" typeahead-template-url="eventListDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0"><br><br>
+   -->
+
+  
+    Industry Type: <input type="text" ng-model="industry" placeholder="Select industry" uib-typeahead="industry as industry.industryTypeName for industry in industryList | filter:{industryTypeName:$viewValue}" typeahead-template-url="industryDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0"><br><br>
+    country: <input type="text" ng-model="country" placeholder="Select country" uib-typeahead="country as country.countryName for country in countryList | filter:{countryName:$viewValue}" typeahead-template-url="countryDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0"><br><br>
+    city:  <input type="text" ng-model="city" placeholder="Select city" uib-typeahead="city as city.cityName for city in getcityes(country.countryId) | filter:{cityName:$viewValue}" typeahead-template-url="cityDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0"><br><br>
+    Event Type: <input type="text" ng-model="eventType" placeholder="Select eventType" uib-typeahead="eventType as eventType.eventTypeName for eventType in eventTypeList | filter:{eventTypeName:$viewValue}" typeahead-template-url="eventListDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0"><br><br>
+  
+	
+	<!-- <p class="">Industry Type:
+	<select ng-model="industry"          
+     ng-options="industry as industry.name for industry in industryList"></select>
+     </p>
+     <p class="">country: 
+     <select ng-model="country"          
+     ng-options="country as country.name for country in countryList track by country.id"></select>
+     </p>
+      <p class="">city: 
+     <select ng-model="city"          
+     ng-options="city as city.name for city in getBranches(country.id)"></select>
+     </p>
+     
+     <p class="">Event Type: 
+     <select ng-model="eventType"          
+     ng-options="eventType as eventType.name for eventType in EventTypeList"></select>
+     </p>
+ -->     
+     <!-- <p class="">Event Type:
+		            <span style = "margin-left: 12px;">
+		        <select ng-model="eventType">
+		        	<option value="">-- Select an option --</option>
+		            <option value="1">Not applicable</option>
+		            <option value="2">Email</option>
+		            <option value="3">Phone call</option>
+		            <option value="4">Voicemail</option>
+		        </select></span>
+		        </p> -->
+     
+	<!--  <p class="">Industry Type:
+		            <span style = "margin-left: 12px;">
+		        <select ng-model="industryType">
+		        	<option value="">-- Select an option --</option>
+		            <option value="1">Not applicable</option>
+		            <option value="2">Email</option>
+		            <option value="3">Phone call</option>
+		            <option value="4">Voicemail</option>
+		        </select></span>
+		        </p>
+		         
+		        	 <p class="">city:
+		            <span style = "margin-left: 12px;">
+		        <select ng-model="cityId">
+		        	<option value="">-- Select an option --</option>
+		            <option value="1">Patna</option>
+		            <option value="2">Bangaluru</option>
+		            <option value="3">Pune</option>
+		            <option value="4">new City</option>
+		        </select></span>
+		        </p>
+		        	 <p class="">country:
+		            <span style = "margin-left: 12px;">
+		        <select ng-model="countryId">
+		        	<option value="">-- Select an option --</option>
+		            <option value="1">India</option>
+		            <option value="2">US</option>
+		            <option value="3">UK</option>
+		            <option value="4">Chin</option>
+		        </select></span>
+		        </p> -->
+ 	Start Date: <input type="text" id="startDate" placeholder="Select Start Date" ng-model="startDate"> <br><br>
+	End Date: <input type="text" id="endDate" placeholder="Select End Date" ng-model="endDate"> <br><br>
+	Web Address : <input type="text" id="websiteURL" placeholder="www.eventllabs.com" ng-model="webURL"> <br><br>
+    Upload Photo:
+      <input type="file" ngf-select ng-model="picFile" name="file"    
+              ngf-max-size="444MB" required
+             ngf-model-invalid="errorFile">
+      <i ng-show="myForm.file.$error.required">*required</i><br>
+      <i ng-show="myForm.file.$error.maxSize">File too large 
+          {{errorFile.size / 1000000|number:1}}MB: max 444M</i>
+      <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> 
+      <button ng-click="picFile = null" ng-show="picFile">Remove</button>
+      <br>
+      <button ng-click="createEvent(picFile)">Submit</button>
+      <span class="progress" ng-show="picFile.progress >= 0">
+        <div style="width:{{picFile.progress}}%"  ng-bind="picFile.progress + '%'"></div>
+      </span>
+      <span ng-show="picFile.result">Upload Successful</span>
+      <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+    </fieldset>
+</form>
+
+</div>
