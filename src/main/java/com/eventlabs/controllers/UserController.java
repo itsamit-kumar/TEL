@@ -70,7 +70,7 @@ public class UserController {
 			userInfo.setIsUserLoggedIn("Y");
 		}else{
 			userInfo.setIsUserLoggedIn("N");
-			userInfo.setErrorMessages("This EmailId  Already Exist");
+			userInfo.setErrorMessages("Please change your EmailId this is  Already Exist");
 		}
 		
 		ResponseHeader lResponseHeader = null;
