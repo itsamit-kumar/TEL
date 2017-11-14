@@ -1,0 +1,160 @@
+
+        .modal {
+            text-align: center;
+            z-index: 1;
+            padding-top: 0%;
+            top: 0;
+  
+            text-align: center;
+            shape-margin: 20%;
+            height: 645px;
+            position:absolute;
+            margin:auto;
+        }
+
+        #mymodal {
+            background-color: #black;
+           position:absolute;
+            margin:auto 25%;
+        }
+
+        /* Modal Content */
+
+        .modal-content {
+            background-color: #07776d;
+            margin: auto;
+            padding-top: 1%;
+            font-family: 'Comfortaa', cursive;
+            width: 665px;
+            height: 645px;
+           padding-left:5%;
+            text-align: justify;
+        }
+
+        /* The Close Button */
+
+        .close {
+            color: black;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            width: 33px;
+            height: 38px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+		.fieldset1
+		{
+		margin:0px;
+		padding:0px;
+		border:0px;
+		}
+		
+        .logo
+        {
+            text-align: center;
+            margin-bottom: 1%;
+        }
+
+        label {
+            position: relative;
+            display: inline-block;
+            margin-left: 0%;
+            margin-bottom: 10px;
+            line-height: 36px;
+            font-size: 15px;
+            color: white;
+        }
+
+        label::before {
+            position: absolute;
+            left: 0;
+            display: block;
+            width: 94px;
+            height: 36px;
+            border: 2px solid #07776d;
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .block input[type="text"] {
+            width: 395px;
+            height: 33px;
+            border-color: transparent;
+            border-radius: 18px;
+            text-align:center;
+            font-size: 17px;
+            font-family: 'Comfortaa', cursive;
+        }
+
+        .bt {
+            padding: 6px 0px 6px 0px;
+            width: 395px;
+            clear: both;
+            margin-right: 15%;
+            float: right;
+            border-radius: 36px;
+            border: 1px solid #00ada5;
+            font-family: 'Comfortaa', cursive;
+            background-color:#07776d;
+;
+        }
+
+        .bt2 {
+            padding: 4px;
+            width: 23%;
+            clear: both;
+            margin: 0;
+            border-radius: 36px;
+            text-align: center;
+            border: 1px solid #00ada5;
+            font-family: 'Comfortaa', cursive;
+             background-color:#07776d;
+            
+        }
+
+        .buttan {
+            background:lightgreen;
+            padding: 6px 20px 22px 20px;
+            font-size: 18px;
+            border-color: transparent;
+            color: #fff;
+            border-radius: 8px;
+            height: 30px;
+            font-family: 'Comfortaa', cursive;
+            cursor: pointer;
+            margin-left: 232px;
+            margin-top: 2%;
+        }
+        .start-date-cal,.start-time
+        {
+            margin-left: 12%;
+        }
+        ::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
+}
+.ModalOpen { overflow: hidden; }
+	.is-hidden { display: none; }
+	.is-visuallyHidden { opacity: 0; }
+       .is-blurred {
+	  filter: blur(2px);
+	  -webkit-filter: blur(2px);
+	} 
+        
