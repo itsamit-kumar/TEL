@@ -1,5 +1,131 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/event-card.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+<script src="js/sidebar.js"></script>
+</head>
+<body>
 <div id="home">
-<div  ng-repeat="event in eventLists">
-<img src="uploadImages/{{event.imageName}}"  width="100px" height="100px">{{event.eventName}}  {{event.eStartDate}} {{event.eEndDate}} {{event.eventLocation}} {{event.eventType}} <a href="#/eventDetails">Event Details</a><br>
+
+			   <section class="search-result">
+			 <div class="icon">
+                <img src="images/logo-white.png">
+                </div>
+         <div class="advanced-search">
+                Advanced Search
+                </div>
+                  <div id="side-scrollbar">
+                 <div class="navigation">
+        <ul>
+            <li>
+                <a href="#" onclick="swap('sectionOneLinks');return false;">Industry </a>
+                <ul id="sectionOneLinks" style="display: none;">
+                  <li><a href="#">Educational</a></li>
+                  <li><a href="#">Medical</a></li>
+                  <li><a href="#">Technological</a></li>
+                  <li><a href="#">Art</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" onclick="swap('sectionTwoLinks');return false;">Event Type</a>
+                <ul id="sectionTwoLinks" style="display: none;">
+                  <li><a href="#">Conference</a></li>
+                  <li><a href="#">Meet-up</a></li>
+                  <li><a href="#">Exibition</a></li>
+                  <li><a href="#">Fare</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" onclick="swap('sectionThreeLinks');return false;">Location</a>
+                <ul id="sectionThreeLinks" style="display: none;">
+                  <li><a href="#">Gulf Countries</a></li>
+                  <li><a href="#">South Asia</a></li>
+                  <li><a href="#">Europe</a></li>
+                  
+                </ul>
+            </li>
+              <li>
+                <a href="#" onclick="swap('sectionFourLinks');return false;">Location</a>
+                <ul id="sectionFourLinks" style="display: none;">
+                  <li><a href="#">not available</a></li>
+                  <li><a href="#">South Asia</a></li>
+                  <li><a href="#">Europe</a></li>
+                  
+                </ul>
+            </li>
+        </ul>
+    </div>
+                
+                </div>     
+            </section>
+			
+            <header class="header2" >
+            <div class="tabs">
+              <div class="switch">Switch to :</div><br>
+			  <div class="switch-button">
+			  <input type="button" value="Organiser" href="#" class="organiser-switch"> <input type="button" value="Exibitor" href="#" class="exhibitor-switch">
+			  </div>
+                </div>
+				<div class="blank-space"> </div>
+                <div class="weather"  background-color:black;">
+                <img src="images/weather.png" style="margin-left:59px; margin-top:20px;"><br>
+				<label id="temperature" style="color:white; margin-left:64px;">23 &deg;C</label>
+				<label style="color:white; margin-left:12px;">Bangalore,India</label>
+				</div>
+                <div class="profile" ng-show="globals.currentUser.username" style="color:white">
+                <img src="images/profile.png" style="margin-left:15px;"><br>
+      Welcome {{globals.currentUser.username}}
+<button type="button" id="logout" class="buttan"  class="search" ng-click="signOut()">LogOut</button>
 </div>
+            </header>
+                <section class="result">
+                <div class="top-section">
+                 <div class="relevant-search" id="relevant-search">
+                Relevant Searches:
+                </div>
+            <div class="sortBy">
+			<label style="margin-left:85px; color:#07776d;">Sort By :<label>
+               <select class="sort">
+                   <option value="Date" selected="selected">Date</option>
+                <option value="size">Size</option>
+                   <option value="type">Type</option>
+                   <option value="name">Name</option>
+                   <option value="place">Place</option>
+                </select>
+                
+                </div>
+                <div id="side-scrollbar2">	
+                <div  ng-repeat="event in eventLists">
+                <div class="event-box-list"> 		
+			<a href="#/eventDetails">
+		 <div class="event-box" onclick="window.open('#/eventDetails','mywindow');" style="margin-top:24px;"> </a>
+    <div class="event-image">
+     <img src="uploadImages/{{event.imageName}}"  width="100%" height="100%">
+      </div>
+      <div class="event-name">
+     <div class="event-title">
+        {{event.eventName}} 
+          </div>
+          <div class="event-type">
+         {{event.eventType}}  Technological Conference
+          </div>
+          <div class="event-place">
+        {{event.eventLocation}}    Bangalore,India
+          </div>
+      </div>
+      <div class="event-schedule">
+      <div class="event-date">
+           {{event.eStartDate}}  Oct. 30,<br>
+		  2017
+          </div>
+          <div class="event-time">
+         7:00PM-10:00PM
+          </div>
+      </div>
+        </div>
+        </div>    
+		</div> 
+		</div>
 </div>
+</body>
+</html>

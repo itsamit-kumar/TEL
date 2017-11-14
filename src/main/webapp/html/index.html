@@ -1,8 +1,11 @@
 <html>
 <head>
+
 <link href="css/ui.bootstrap.css" rel="stylesheet" type="text/css">
+ <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 <link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css">
 <link href="css/ng-table.css" rel="stylesheet" type="text/css">
+<link href="css/index.css" rel="stylesheet" type="text/css">
 <script src="js/lib/jquery.min.js"></script>
 <script src="js/lib/jquery.popupoverlay.js"></script>
 <script src="js/lib/jquery.nicescroll.min.js"></script>
@@ -52,8 +55,8 @@
       </div>
   </div>
 </div>
-  <a href="#/home">Home</a><br><br>
-<div id="searchPannel">
+<div class="container">
+
 	<!-- <select ng-model="industry"          
      ng-options="industry as industry.name for industry in industryList"></select>
      
@@ -67,19 +70,23 @@
    <input type="text" ng-model="country" placeholder="Select country" uib-typeahead="country as country.name for country in countryList | filter:{name:$viewValue}" typeahead-template-url="countryDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
    <input type="text" ng-model="city" placeholder="Select city" uib-typeahead="city as city.name for city in getcityes(country.id) | filter:{name:$viewValue}" typeahead-template-url="cityDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
    -->
-   
-   <input type="text" ng-model="industry" placeholder="Select industry" uib-typeahead="industry as industry.industryTypeName for industry in industryList | filter:{industryTypeName:$viewValue}" typeahead-template-url="industryDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
-   <input type="text" ng-model="country" placeholder="Select country" uib-typeahead="country as country.countryName for country in countryList | filter:{countryName:$viewValue}" typeahead-template-url="countryDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
-   <input type="text" ng-model="city" placeholder="Select city" uib-typeahead="city as city.cityName for city in getcityes(country.countryId) | filter:{cityName:$viewValue}" typeahead-template-url="cityDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
-  
-	<button type="button" id="search" ng-click="searchEvent()">Search</button>
-</div>
-<br>
-<div ng-show="globals.currentUser.username">
-Welcome {{globals.currentUser.username}}
-<button type="button" id="logout" ng-click="signOut()">LogOut</button>
-</div>
-<br>
+    <div id="searchPannel">
+		        <header class="header1" style=" background-image: url('images/backgroundlightgreen.png');">
+		<div class="search-event-row">Search your event</div>
+            <div class="block-box" >
+			
+                <div class="block"> <input type="text" ng-model="industry" placeholder="Select industry" uib-typeahead="industry as industry.industryTypeName for industry in industryList | filter:{industryTypeName:$viewValue}" typeahead-template-url="industryDropdown" class="" typeahead-show-hint="true" typeahead-min-length="0"></div>
+                <div class="block"><input type="text" ng-model="country" placeholder="Select country" uib-typeahead="country as country.countryName for country in countryList | filter:{countryName:$viewValue}" typeahead-template-url="countryDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0"></div>
+                <div class="block"> <input type="text" ng-model="city" placeholder="Select city" uib-typeahead="city as city.cityName for city in getcityes(country.countryId) | filter:{cityName:$viewValue}" typeahead-template-url="cityDropdown" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
+  </div>
+				<img src="images/search2.png" class="search" id="search" data-ng-click="searchEvent()">
+				</div>
+				
+
+                <div style="clear:both;"></div>
+           
+            <div style="clear:both;"></div>
+        </header>
  <div data-ng-view=""></div>
 
 <script type="text/ng-template" id="countryDropdown">

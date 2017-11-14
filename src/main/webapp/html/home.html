@@ -1,24 +1,65 @@
-<div id="signinPannel">
-	<input type="text" id="userId" placeholder="Email or Phone number" ng-model="userId">
-	<input type="password" id="password" placeholder="Password" ng-model="password">
-	<button type="button" id="signin" ng-click="verifyUser()">Sign
-		In</button>
-	<a href="#/forgotPassword">forgot Password</a><br><br>
-	<button ng-click="authenticate('facebook')">Sign in with
-		Facebook</button>
-	<button ng-click="authenticate('google')">Sign in with Google
-	</button>
-</div>
-<br>
-<div> <img alt="waiting" src="images/logo.png" width="200px" height="200px"></div><br>
+<html>
+<head>
+ <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+<div class="container" >
+<header class="header2">
+<div id="signinPannel" class="block-box">
+	<div class="block"><input type="text" id="userId" placeholder="Email or Phone number" ng-model="userId"></div>
+	<div class="block"><input type="password" id="password" placeholder="Password" ng-model="password"></div>
+	<div class="block" style="float:left;"><a href=""> <input type="button" name="" ng-click="verifyUser()" class="buttan" value="Sign in" style="float:left;"></a>	
+                 <div class="block" style=" width:40%; float:left;">   
+          <div class="social-media">
+                      <img src="images/facebook.png" class="logo1" ng-click="authenticate('facebook')"> 
+						<img src="images/google.png" ng-click="authenticate('google')" class="logo2">
+                 </div>
+
+                </div>  
+				</div>                
+              <div style="clear:both;"></div>
+            <div ><a class="forgot-password" href="forgotPassword.html">Forgot Password?</a></div> 
+            <div style="clear:both;"></div> 
+			</div>
+        </header>
+         <section class="main-content">
+            <div id="imageblock">
+        <div> <img alt="waiting" src="images/weblogo.png" style="width:257.577px; height:183.693px"></div><br>
+          <div class="aboutUs"> <a href=""> <input type="button" class="buttan" id="aboutUs" value="About Us" ></a></div>
+            </div>
+		   <div id="otherBlock">	
 <div id="contant">
 	<div id="logo"></div>
+	 <div class="signUpBlock">Sign up to list your event and<br/> create a free website</div>
 	<div id="signinPannel">
-		<input type="text" id="firstName" placeholder="FirstName" ng-model="fName"> <br>
-		<input type="text" id="lastName" placeholder="LastName" ng-model="lName"> <br>
-		<input type="text" id="emailId" placeholder="Email Id" ng-model="emailId"> <br>
-		<input type="text" id="phoneNumber" placeholder="Phone Number" ng-model="phoneNumber"> <br>
-		<input type="password" id="rPassword" placeholder="Password" ng-model="rPassword"><br><br>
-		<button type="button" id="signup" ng-click="registorNewUser()">Sign up</button>
+	 <div style="width:325px;margin-left:110px;">
+        	<input type="text" id="firstName" placeholder="FirstName" ng-model="fName" class="halfleft" style="padding-right:10.1px;">
+		<input type="text" id="lastName" placeholder="LastName" ng-model="lName" class="halfright">
+		</div>
+		<input type="text" id="emailId" placeholder="Email Id" ng-model="emailId" class="bt"> 
+		<input type="text" id="phoneNumber" placeholder="Phone Number" ng-model="phoneNumber"class="bt">
+		<input type="password" id="rPassword" placeholder="Password" ng-model="rPassword" class="bt"><br>
+	
+		  <div class="radio-buttons">
+                    <input type="radio" name="rb" />
+                    Visitor
+                    <input type="radio" name="rb"  />
+                    Organiser
+                    <input type="radio" name="rb"  />
+                    Exhibitor
+                </div>
+				 <div class="agreement">By clicking Sign Up, you agree to The Event Labs User Agreement,<br/> Privacy Policy, and Cookie Policy.</div>
+				 	<button type="button" id="signup" class="buttan" ng-click="registorNewUser()">Sign up</button>             
+
 	</div>
-</div>
+	</div>
+	</div>
+		 </section>
+		 </div>
+		
+       
+
+</body>
+</html>
