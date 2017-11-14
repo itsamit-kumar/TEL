@@ -1,11 +1,45 @@
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="css/create-event-website.css">
+</head>
+<body>
 <div id="home">
 
-DashBoard
-<a href="#/event-template-1">Create Event</a><br><br>
-<!-- <a href="#/event-template-2">template-2</a><br><br>
-<a href="#/event-template-3">template-3</a><br><br>
-<a href="#/event-template-4">template-4</a><br><br>
-<a href="#/event-template-5">template-5</a><br><br>
-<a href="#/createEvent">Create Event</a><br><br>
-<button type="button" id="createvent" ng-click="createEvent()">Create Event</button> -->
+ <header class="header2" style="width:100%; height:12%;" >
+ <div class="icon" style="height:70px; width:181px;">
+                <img src="images/logo-white.png" style="width:137px; height:79px; margin-bottom:-23px;">
+                </div>
+            <div class="tabs">
+          <!--     <div class="switch">Switch to :</div><br>
+			  <div class="switch-button">
+			  <input type="button" value="Organiser" href="#" class="organiser-switch"> <input type="button" value="Exibitor" href="#" class="exhibitor-switch">
+			  </div>  -->
+                </div>  
+				<div class="blank-space"> </div>
+                <div class="weather"  background-color:black;">
+                <img src="images/weather.png" style="margin-left:59px; margin-top:20px;"><br>
+				<label id="temperature" style="color:white; margin-left:64px;">23 &deg;C</label>
+				<label style="color:white; margin-left:12px;">Bangalore,India</label>
+				</div>
+                <div class="profile" ng-show="globals.currentUser.username" style="color:white">
+                <img src="images/profile.png" style="margin-left:15px; font-size:14px;"><br>
+      Welcome {{globals.currentUser.username}}
+<button type="button" id="logout" class="buttan"  class="search" ng-click="signOut()">LogOut</button>
 </div>
+            </header>
+              <section class="create-new" >
+            <div class="create-website">
+                <img src="images/create-web-logo.png"><br>
+                <label class="create-web">Create your free website</label>
+            </div>
+           <a href="#/event-template-1"> <div class="create-event">
+			<div id="home">
+                <img src="images/create-event-logo.png"><br>
+            <label class="create-eve">Create your new event</label>
+				</div>
+            </div></a>
+        </section>
+<a href="#/event-template-1">Create Event</a><br><br>
+</div>
+</body>

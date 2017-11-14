@@ -1,0 +1,93 @@
+
+		
+		.header2 {
+      width:81.67%;
+	  height:58px;
+      font-family: 'Comfortaa', cursive;
+	  background-color:black;
+  }
+   .icon,.tabs,.weather,.profile,.blank-space
+        {
+            height:40px;
+            font-family: 'Comfortaa', cursive;
+			background-color:black;
+        }
+        	.header2
+{
+    display: table;
+    width:81.68%;
+    table-layout: fixed; 
+}
+.tabs,.weather,.profile,.blank-space
+{
+    display: table-cell;
+    
+}
+
+ .create-new {
+            width: 100%;
+            height: 62%;
+        }
+
+        .create-website {
+            width: 24%;
+            height: 65%;
+            padding-top: 4%;
+            margin-left: 10%;
+            margin-right: 15%;
+            margin-top: 3%;
+            float: left;
+ color:#07776d;
+        }
+
+        .create-event {
+            width: 24%;
+            height: 65%;
+            padding-top: 4%;
+            margin-left: 15%;
+            margin-right: 10%;
+            margin-top: 3%;
+            float: left;
+            color:#07776d;
+        }
+
+        .create-new img {
+            width: 70%;
+            height: 70%;
+            padding-left: 13%;
+        }
+
+        .create-eve,
+        .create-web {
+            font-size: 24px;
+            color: :#07776d;
+            font-family: 'Comfortaa', cursive;
+            padding: 2.9%;
+        }
+        .create-eve
+        {
+            padding-left: 7%;
+        }
+        label
+        {
+            text-align: center;
+        }
+       .create-website:hover
+        {
+            background-color: aliceblue;
+            cursor: pointer;
+        }
+         .create-event:hover
+        {
+            background-color:aliceblue;
+            cursor: pointer;
+        }
+        
+        
+        a:-webkit-any-link {
+text-decoration:none;
+color: :#07776d;
+font-size:20px;
+text-align:left;
+margin-left:5px;
+}
